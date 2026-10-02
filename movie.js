@@ -16,7 +16,7 @@ async function loadMovie() {
     const movie = await response.json();
     if (movie.Response === 'False') throw new Error(movie.Error || 'Film details could not be found.');
 
-    document.title = `${movie.Title} — Movie Lens`;
+    document.title = `${movie.Title} - Movie Lens`;
     const details = document.createElement('section');
     details.className = 'details';
     const poster = document.createElement('img');
@@ -29,7 +29,7 @@ async function loadMovie() {
     info.className = 'info';
     const kicker = document.createElement('div');
     kicker.className = 'detail-kicker';
-    kicker.textContent = `${movie.Type || 'Film'} · ${movie.Rated && movie.Rated !== 'N/A' ? movie.Rated : 'Details'}`;
+    kicker.textContent = `${movie.Type || 'Film'} | ${movie.Rated && movie.Rated !== 'N/A' ? movie.Rated : 'Details'}`;
     const heading = document.createElement('h1');
     heading.textContent = movie.Title;
 
@@ -44,7 +44,7 @@ async function loadMovie() {
     if (movie.imdbRating && movie.imdbRating !== 'N/A') {
       const rating = document.createElement('span');
       rating.className = 'meta-pill rating';
-      rating.textContent = `★ ${movie.imdbRating} / 10`;
+      rating.textContent = `IMDb ${movie.imdbRating} / 10`;
       metadata.append(rating);
     }
 
@@ -60,7 +60,7 @@ async function loadMovie() {
     const trailer = document.createElement('button');
     trailer.className = 'trailer-button';
     trailer.type = 'button';
-    trailer.textContent = '▶  Find the trailer';
+    trailer.textContent = 'Find the trailer';
     trailer.addEventListener('click', () => {
       const url = `https://www.youtube.com/results?search_query=${encodeURIComponent(`${movie.Title} official trailer`)}`;
       window.open(url, '_blank', 'noopener,noreferrer');
@@ -70,7 +70,7 @@ async function loadMovie() {
     details.append(poster, info);
     container.replaceChildren(details);
   } catch (error) {
-    showError(error.message || 'We couldn’t load this film. Try again in a moment.');
+    showError(error.message || 'We could not load this film. Try again in a moment.');
   }
 }
 

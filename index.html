@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#090a0d">
   <meta name="description" content="Find your next favorite film with Movie Lens.">
-  <title>Movie Lens — Find your next film</title>
+  <title>Movie Lens - Find your next film</title>
   <link rel="icon" type="image/png" href="Cinematic Movie Lens Logo.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,24 +19,35 @@
   </header>
   <main>
     <section class="hero">
-      <div class="eyebrow"><span class="eyebrow-line"></span> THE WORLD OF FILM, IN FOCUS</div>
-      <h1>Find the film<br>that <span>finds you.</span></h1>
-      <p class="subtitle">Search the stories, stars, and moments you can’t stop thinking about.</p>
-      <form class="search-box" id="searchForm" role="search">
-        <span class="search-icon" aria-hidden="true">⌕</span>
-        <input id="searchInput" type="search" placeholder="Try ‘Interstellar’ or ‘Zendaya’" aria-label="Search movies" autocomplete="off">
-        <button id="searchBtn" type="submit">Explore <span aria-hidden="true">↗</span></button>
-      </form>
-      <p class="search-hint">PRESS <kbd>ENTER</kbd> TO SEARCH</p>
+      <div class="hero-copy">
+        <div class="eyebrow"><span class="eyebrow-line"></span> THE WORLD OF FILM, IN FOCUS</div>
+        <h1>Find the film<br>that <span>finds you.</span></h1>
+        <p class="subtitle">Search the stories, stars, and moments you can't stop thinking about.</p>
+        <form class="search-box" id="searchForm" role="search">
+          <span class="search-icon" aria-hidden="true"></span>
+          <input id="searchInput" type="search" placeholder="Try Interstellar or Zendaya" aria-label="Search movies" autocomplete="off">
+          <button id="searchBtn" type="submit">Explore <span aria-hidden="true">&rarr;</span></button>
+        </form>
+        <p class="search-hint">PRESS <kbd>ENTER</kbd> TO SEARCH</p>
+        <div class="hero-proof"><span class="proof-star">&starf;</span><span>One search away from your next favorite</span></div>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <div class="art-orbit orbit-one"></div><div class="art-orbit orbit-two"></div>
+        <div class="poster-art poster-back"><span class="poster-index">ML / 02</span><span class="poster-sun"></span><span class="poster-title">INTO<br>THE<br>UNKNOWN</span><span class="poster-caption">A STORY WORTH GETTING LOST IN</span></div>
+        <div class="poster-art poster-front"><span class="poster-index">A MOVIE LENS ORIGINAL</span><span class="poster-moon"></span><span class="poster-title">AFTER<br>THE<br>GLOW</span><span class="poster-caption">EVERY ENDING STARTS SOMEWHERE</span></div>
+        <div class="art-stamp"><span>NOW<br>SHOWING</span><b>&#10132;</b></div>
+        <div class="art-caption">STORIES THAT STAY WITH YOU <span>01 / 04</span></div>
+      </div>
     </section>
+    <div class="genre-bar" aria-label="Explore by mood"><span class="genre-label">SET THE MOOD</span><span>Mind-bending</span><i></i><span>Heartfelt</span><i></i><span>Edge of your seat</span><i></i><span>Out of this world</span></div>
     <section class="results-section" aria-live="polite">
       <div class="section-heading"><div><p class="section-kicker">THE GOOD STUFF</p><h2 id="resultsTitle">Your next favorite</h2></div><span class="result-count" id="resultCount"></span></div>
       <div id="moviecontainer" class="movie-grid">
-        <div class="empty-state"><span class="empty-icon">✳</span><p>Search a movie, actor, or story to get started.</p></div>
+        <div class="empty-state"><span class="empty-icon">&star;</span><p>Search a movie, actor, or story to get started.</p></div>
       </div>
     </section>
   </main>
-  <footer><span>© 2026 MOVIE LENS</span><span>MADE FOR THE LOVE OF FILM <span class="footer-star">✦</span></span></footer>
+  <footer><span>&copy; 2026 MOVIE LENS</span><span>MADE FOR THE LOVE OF FILM <span class="footer-star">&starf;</span></span></footer>
   <script src="script.js"></script>
 </body>
 </html>

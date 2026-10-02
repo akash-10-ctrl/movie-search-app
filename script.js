@@ -15,11 +15,11 @@ form.addEventListener('submit', async (event) => {
     return;
   }
 
-  title.textContent = `Searching “${query}”`;
+  title.textContent = `Searching: ${query}`;
   count.textContent = '';
   button.disabled = true;
-  button.innerHTML = 'Searching…';
-  container.innerHTML = '<div class="status-message">Finding your next favorite…</div>';
+  button.textContent = 'Searching...';
+  container.innerHTML = '<div class="status-message">Finding your next favorite...</div>';
 
   try {
     const response = await fetch(`https://www.omdbapi.com/?apikey=${API_KEY}&s=${encodeURIComponent(query)}`);
@@ -27,7 +27,7 @@ form.addEventListener('submit', async (event) => {
     const data = await response.json();
     if (data.Response === 'False' || !Array.isArray(data.Search)) {
       title.textContent = 'No films found';
-      showMessage(data.Error === 'Invalid API key!' ? 'The movie search service needs a valid API key.' : `No results for “${query}”. Try another title or spelling.`, true);
+      showMessage(data.Error === 'Invalid API key!' ? 'The movie search service needs a valid API key.' : `No results for "${query}". Try another title or spelling.`, true);
       return;
     }
     title.textContent = 'Your search results';
@@ -35,10 +35,10 @@ form.addEventListener('submit', async (event) => {
     container.replaceChildren(...data.Search.map(createCard));
   } catch (error) {
     title.textContent = 'Search unavailable';
-    showMessage('We couldn’t reach the movie database. Check your connection and try again.', true);
+    showMessage('We could not reach the movie database. Check your connection and try again.', true);
   } finally {
     button.disabled = false;
-    button.innerHTML = 'Explore <span aria-hidden="true">↗</span>';
+    button.innerHTML = 'Explore <span aria-hidden="true">&rarr;</span>';
   }
 });
 
